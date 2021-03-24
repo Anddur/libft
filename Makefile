@@ -9,21 +9,21 @@ CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror
 
 .c.o	:
-			$(CC) $(CFLAGS) -c $<
+			@$(CC) $(CFLAGS) -c $<
 
 $(NAME)	:	$(OBJ)
-			ar rc $(NAME) $(OBJ)
+			@ar rc $(NAME) $(OBJ)
 
 all		:	$(NAME)
 
 bonus	:	$(NAME) $(OBJ) $(OBJB)
-			ar rc $(NAME) $(OBJ) $(OBJB)
+			@ar rc $(NAME) $(OBJ) $(OBJB)
 
 clean	:
-			rm -f $(OBJ) $(OBJB)
+			@rm -f $(OBJ) $(OBJB)
 
 fclean	:	clean
-			rm -f $(NAME)
+			@rm -f $(NAME)
 
 re		:	fclean all
 

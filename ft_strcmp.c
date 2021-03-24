@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aduregon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/12 11:03:41 by aduregon          #+#    #+#             */
-/*   Updated: 2021/01/26 17:06:53 by aduregon         ###   ########.fr       */
+/*   Created: 2021/03/02 09:46:31 by aduregon          #+#    #+#             */
+/*   Updated: 2021/03/21 12:00:40 by aduregon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list		*ft_lstnew(void *content)
+int		ft_strcmp(const char *s1, const char *s2)
 {
-	t_list *element;
-
-	if (!(element = malloc(sizeof(t_list))))
-		return (NULL);
-	element->content = content;
-	element->next = NULL;
-	return (element);
+	if (!s1 && !s2)
+		return (0);
+	if (!s1)
+		return (-(unsigned char)*s2);
+	if (!s2)
+		return ((unsigned char)*s1);
+	while (*s1 && *s2 && (unsigned char)*s1 == (unsigned char)*s2)
+	{
+		s1++;
+		s2++;
+	}
+	return ((unsigned char)*s1 - (unsigned char)*s2);
 }

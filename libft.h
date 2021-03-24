@@ -6,7 +6,7 @@
 /*   By: aduregon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 17:56:40 by aduregon          #+#    #+#             */
-/*   Updated: 2021/01/12 17:56:42 by aduregon         ###   ########.fr       */
+/*   Updated: 2021/03/21 12:36:56 by aduregon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include "get_next_line.h"
+
+# define BUFFER_SIZE 1
+
 
 typedef struct	s_list
 {
@@ -68,5 +72,7 @@ void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void*));
 int				ft_isspace(int c);
+int				ft_strcmp(const char *s1, const char *s2);
+long int		ft_atoi_long(const char *str);
 
 #endif
